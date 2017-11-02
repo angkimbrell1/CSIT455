@@ -2,10 +2,10 @@
 class DB
 {
   public static function CreateConnection() {
-    $host = "localhost";
-    $user = "root";
-    $password = "password";
-    $db = "csit455final";
+    $host = "AMAZON THING HERE";
+    $user = "USERNAMEHERE";
+    $password = "PASSWORDHERE";
+    $db = "CSIT455";
     $connection = new mysqli($host, $user, $password, $db);
 
     //Check for error
@@ -18,7 +18,7 @@ class DB
   public static function Test() {
     $conn = DB::CreateConnection();
     // Make a select query
-    $rawResults = $conn->query('SELECT * FROM test');
+    $rawResults = $conn->query('SELECT * FROM Employees');
     //Put all results into bucket
     $test = [];
     while($row = $rawResults->fetch_assoc()) {

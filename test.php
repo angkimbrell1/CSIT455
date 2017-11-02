@@ -5,8 +5,8 @@
     foreach($test as $name)
     echo "
         <li>
-          <a href='profile.php?id=$name[idtest]'>
-          $name[idtest] $name[name]
+          <a href='profile.php?id=$name[idEmployees]'>
+          $name[idEmployees] $name[first_name] $name[last_name] $name[position]
           </a>
         </li>
     ";
