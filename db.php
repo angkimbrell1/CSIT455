@@ -2,7 +2,7 @@
 class DB
 {
   public static function CreateConnection() {
-    $host = "AMAZON THING HERE";
+    $host = "AMAZONTHINGHERE";
     $user = "USERNAMEHERE";
     $password = "PASSWORDHERE";
     $db = "CSIT455";
@@ -10,11 +10,12 @@ class DB
 
     //Check for error
     if($connection->connect_error) {
-      echo "cOnnection error:" . $connect_error;
+      echo "connection error:" . $connect_error;
     }
     // Send the connection back
     return $connection;
   }
+
   public static function Test() {
     $conn = DB::CreateConnection();
     // Make a select query
