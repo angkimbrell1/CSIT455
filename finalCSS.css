@@ -171,3 +171,33 @@ color: #04A3ED;
   font-size: 18px;
   font-weight: bold;
 }
+/* MANAGER HOMEPAGE */
+#availableShifts {
+  margin: none;
+  position: absolute;
+  top: 150px;
+}
+#avail th {
+  text-align: center;
+}
+#avail th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+    text-align: center;
+}
+#avail div {
+  visibility: hidden;
+}
+#input {
+  width: 60px;
+}
+#console {
+  margin: none;
+  position: absolute;
+  top: 200px;
+  right: 100px;
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 15px;
+}

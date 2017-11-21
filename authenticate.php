@@ -22,7 +22,7 @@
       //Check vars, if good, redirect to profile
       // If bad, redirect to Login
       if($foundID && $foundPassword == $password) {
-        header("Location: homepage.php?managerID=".$foundID);
+        header("Location: homepageManager.php?managerID=".$foundID);
       } else {
         header("Location: 404.php");
       }
