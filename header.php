@@ -1,8 +1,12 @@
 <div class="menu">
 <div class="container-fluid">
 <div class="navbar-header">
-  <a href="#">Home</a>
-  <a href="#">Sub Shifts</a>
+<?php
+
+echo "
+  <a href=homepage.php?employeeID=$_GET[employeeID]>Home</a>
+  <a href=availableShifts.php?employeeID=$_GET[employeeID]>Sub Shifts</a>";
+?>
 </div>
 <div>
   <ul class="nav navbar-nav navbar-right">

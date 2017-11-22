@@ -149,7 +149,7 @@ padding: 5px 30px;
 .navbar-header > a:hover
 {
 text-decoration: none;
-color: #04A3ED;
+color: #FAEBD7;
 }
 /* HOMEPAGE */
 .row {
@@ -161,15 +161,24 @@ color: #04A3ED;
 }
 #welcomeStatement {
   position: absolute;
-  top: 120px;
+  top: 150px;
 }
 #heading {
+  position: absolute;
   top: 200px;
   border-style: solid;
   border-width: 1px;
   text-align: center;
   font-size: 18px;
   font-weight: bold;
+}
+#heading td {
+  font-weight: lighter;
+}
+#buttonTD {
+  width: 200px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 /* MANAGER HOMEPAGE */
 #availableShifts {

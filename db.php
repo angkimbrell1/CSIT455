@@ -15,34 +15,34 @@ class DB
     // Send the connection back
     return $connection;
   }
-public static function GetEmployeeById($id='')
+public static function GetEmployeeById($id)
  {
    // Make a connection
    $conn = DB::CreateConnection();
    // Make a query
-   $rawResults = $conn->query("SELECT * FROM employees WHERE id = $id");
+   $rawResults = $conn->query("SELECT * FROM employees WHERE employeeID like '%$id%'");
    // Fetch result
    $employee = $rawResults->fetch_assoc();
    // Return the user
    return $employee;
  }
- public static function GetManagerById($managerID='')
+ public static function GetManagerById($managerID)
  {
    // Make a connection
      $conn = DB::CreateConnection();
      // Make a query
-     $rawResults = $conn->query("SELECT * FROM managers WHERE managerID like '%managerID%'");
+     $rawResults = $conn->query("SELECT * FROM managers WHERE managerID like '%$managerID%'");
      // Fetch result
      $manager = $rawResults->fetch_assoc();
      // Return the user
      return $manager;
  }
- public static function GetAvailableShifts()
+ public static function GetAvailableShiftsByStoreID($storeID)
  {
    // Make a connection
    $conn = DB::CreateConnection();
    // Make a query
-   $rawResults = $conn->query("SELECT * FROM shifts WHERE availability='0'");
+   $rawResults = $conn->query("SELECT * FROM shifts WHERE availability='0' AND storeID = $storeID");
    // Fetch result
    $shifts = [];
    while($row = $rawResults->fetch_assoc()) {
@@ -136,6 +136,59 @@ public static function employeeTransfer()
       die("Prepare FAILED");
     }
     $bindResult = $sql->bind_param("i", $shiftID);
+    if($bindResult==false)
+    {
+      die('binding FAILED');
+    }
+    $executeResult = $sql->execute();
+    if($executeResult == false)
+    {
+      die('Executing FAILED');
+    }
+  }
+  public static function getEmployeeShifts()
+  {
+    // Make a connection
+    $conn = DB::CreateConnection();
+    // Make a query
+    $rawResults = $conn->query("SELECT * FROM shifts WHERE employeeID='$_GET[employeeID]'");
+    // Fetch result
+    $shifts = [];
+    while($row = $rawResults->fetch_assoc()) {
+      // Store for use
+      $shifts[] = $row;
+    }
+    // Return the bucket
+    return $shifts;
+  }
+  public static function putShiftInSubbook($shiftID)
+  {
+    $connection = DB::CreateConnection();
+    $sql = $connection->prepare("UPDATE shifts SET availability=0 WHERE shiftID=?");
+    if($sql == false)
+    {
+      die("Prepare FAILED");
+    }
+    $bindResult = $sql->bind_param("i", $shiftID);
+    if($bindResult==false)
+    {
+      die('binding FAILED');
+    }
+    $executeResult = $sql->execute();
+    if($executeResult == false)
+    {
+      die('Executing FAILED');
+    }
+  }
+  public static function pickUpShift($employeeID, $shiftID)
+  {
+    $connection = DB::CreateConnection();
+    $sql = $connection->prepare("UPDATE shifts SET employeeID=? WHERE shiftID=?");
+    if($sql == false)
+    {
+      die("Prepare FAILED");
+    }
+    $bindResult = $sql->bind_param("si", $employeeID, $shiftID);
     if($bindResult==false)
     {
       die('binding FAILED');

@@ -11,13 +11,17 @@
   </head>
   <body id="test">
     <!-- TODO: Make form appear when the assign button is cicked -->
-    <?php include "header.php" ?>
-    <h2 id="welcome">Welcome</h2>
+    <?php include "header.php";
+    $managerID = $_GET["managerID"];
+    $manager = DB::GetManagerById($managerID);
+
+    ?>
+    <h2 id="welcome">Welcome <?php echo "$manager[firstName] $manager[lastName]" ?></h2>
     <div id="availableShifts">
     <h3>Here are shifts that you need to schedule:</h3>
     <table style="width:150%" id="avail">
     <?php
-    $availableShifts = DB::GetAvailableShifts();
+    $availableShifts = DB::GetAvailableShiftsByStoreID($manager["storeID"]);
     echo "<tr>
           <th>Shift ID</th>
           <th>Start Time</th>

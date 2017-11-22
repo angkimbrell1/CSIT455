@@ -1,4 +1,8 @@
-
+<?php
+include "db.php";
+  $employeeID = $_GET["employeeID"];
+  $employee = DB::GetEmployeeById($employeeID);
+ ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,16 +14,35 @@
   <body>
     <?php include "header.php"?>
 
+<h2 id="welcome">Welcome <?php echo "$employee[firstName] $employee[lastName]" ?></h2>
+<h4 id="welcomeStatement">Here are your current scheduled shifts</h4>
 
-<!-- TODO: Make a welcome PHP statement -->
+<div id="heading">
+<table id="avail">
+<?php
+$employeeID = $_GET["employeeID"];
+$employeeShifts = DB::getEmployeeShifts();
+echo "<tr>
+      <th>Shift ID</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Date</th>
+      <th>Position</th>
+      <th>Options</th></tr>";
+foreach ($employeeShifts as $shift) {
+  echo "
+      <tr>
+          <td>$shift[shiftID]</td>
+          <td>$shift[startTime]</td>
+          <td>$shift[endTime]</td>
+          <td style=width:100px>$shift[date]</td>
+          <td>$shift[position]</td>
+          <td id=buttonTD style=width:200px><button><a href=subbook.php?shiftID=$shift[shiftID]&employeeID=$employeeID>Put shift in sub book</a></button></td>
+      </tr>";
+}
 
-<!-- MAKE THIS A TABLE -->
-  <div class="heading">
-  <div class="col-md-2" id="heading">Date</div>
-  <div class="col-md-2" id="heading">Time</div>
-  <div class="col-md-2"id="heading">Shift Type</div>
-  <div class="col-md-2"id="heading">Manager</div>
-  <div class="col-md-2"id="heading">Options</div>
+ ?>
+</table>
 </div>
 
   </body>
