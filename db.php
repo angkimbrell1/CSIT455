@@ -2,10 +2,10 @@
 class DB
 {
   public static function CreateConnection() {
-    $host = "csit455-mysql-instance1.c0ogvcfzvpeh.us-east-2.rds.amazonaws.com";
-    $user = "master";
-    $password = "password";
-    $db = "CSIT455";
+    $host = "AMAZON THING";
+    $user = "USERNAME";
+    $password = "PW";
+    $db = "DB";
     $connection = new mysqli($host, $user, $password, $db);
 
     //Check for error
