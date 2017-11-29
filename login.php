@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="finalCSS.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  </head>
+<?php $page = "Login"; require "header.php"; ?>
+
   <body id="firstpage">
     <div class="container">
     	<div class="row">
@@ -25,7 +19,7 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="login-form" action="" method="post" role="form" style="display: block;">
+								<form id="login-form" action="authenticate.php" method="post" role="form" style="display: block;">
 									<div class="form-group">
 										<input type="text" name="employeeID" id="employeeID" tabindex="1" class="form-control" placeholder="Employee ID" value="">
 									</div>
