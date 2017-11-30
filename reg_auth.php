@@ -57,8 +57,8 @@
 
 		$connection->close();
 	} else {
-		//die("Only a manager can register employees");
-		header("Location: login.php");
+		$_SESSION['errorMessage'] = "Registration Failed";
+		header("Location: error.php");
 		exit();
 	}
 
