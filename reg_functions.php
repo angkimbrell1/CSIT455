@@ -82,10 +82,10 @@
 		$sql->bind_param("ss", $hashed_pw, $empID);
 		
 		if($sql->execute()) {
-			
+			$sql->close();
 			return true;
 		} else {
-
+			$sql->close();
 			return false;
 		}
 
@@ -102,9 +102,11 @@
 		//db password then the user password is already taken
 		while ($result = $sql->fetch()) {
 			if (password_verify($pw, $pass)) {
+				$sql->close();
 				return true;
 			}
 		}
+		$sql->close();
 		return false;
 	}
 
