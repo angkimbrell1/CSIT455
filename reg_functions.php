@@ -11,9 +11,10 @@
 				//Execute
 				$sql->execute();
 				$sql->close();
+				return true;
 			} else {
 				$sql->close();
-				echo "error: " . $conn->error;
+				return false;
 			}
 	}
 
