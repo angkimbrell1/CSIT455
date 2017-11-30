@@ -41,6 +41,9 @@
 			//make sure employee is not in database already
 			if(!EmployeeIDExists($table, $empIDType, $employeeID, $connection)) {
 				RegisterEmployee($employeeID, $firstName, $lastName, $storeID, $email, $table, $connection);
+				header("Location: pwRegister.php");
+				exit();
+				
 			} else {
 				$_SESSION['errorMessage'] = "Employee already registered";
 				header("Location: error.php");
