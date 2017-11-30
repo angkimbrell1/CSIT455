@@ -33,7 +33,6 @@
 				$_SESSION['errorMessage'] = "Password already exists";
 				header("Location: error.php");
 				exit();
-				//header("Location: pwRegister.php");
 
 			//password and confirm-password must match
 			} elseif ($password != $confirmPassword) {
@@ -41,6 +40,7 @@
 				header("Location: error.php");
 				exit();
 
+			//set new password in DB
 			} else {	
 				UpdatePassword($table, $empIDType, $employeeID, $password, $connection);
 				header("Location: login.php");
@@ -65,12 +65,14 @@
 			//password and confirm password must match
 			} elseif ($password != $confirmPw) {
 				$_SESSION['errorMessage'] = "Password must match both times";
-				header("Location: pwRegister.php");
+				header("Location: error.php");
 				exit();
 
 			} elseif (!PasswordMatch($table, $password, $connection)){		
 				//set employee password to new password
 				UpdatePassword($table, $empIDType, $employeeID, $password, $connection);
+				header("Location: login.php");
+				exit();
 			}		
 
 		} else {
