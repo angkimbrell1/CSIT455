@@ -63,7 +63,7 @@
 				exit();
 
 			//password and confirm password must match
-			} elseif ($password != $confirmPw) {
+			} elseif ($password != $confirmPassword) {
 				$_SESSION['errorMessage'] = "Password must match both times";
 				header("Location: error.php");
 				exit();
