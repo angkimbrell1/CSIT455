@@ -17,7 +17,7 @@ require "header.php";
 					<div class="panel-body">
 						<div class="row">
 							<div>
-								<form id="register-form" action="passAuth.php" method="post" novalidate>
+								<form id="register-form" action="pw_auth.php" method="post" novalidate>
 									<div class="form-group">
 										<input type="text" id="employeeID" name="employeeID" placeholder="Employee ID" class="form-control" tabindex="1" required>
 									</div>
