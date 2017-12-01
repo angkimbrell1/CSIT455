@@ -12,9 +12,6 @@
 				$sql->execute();
 				$sql->close();
 				return true;
-			} else {
-				$sql->close();
-				return false;
 			}
 	}
 
@@ -29,9 +26,6 @@
 			//close statement
 			$sql->close();
 			return $result;
-		} else {
-			$sql->close();
-			die("Query failed");
 		}
 	}
 
