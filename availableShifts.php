@@ -13,8 +13,9 @@
     <table id="avail">
     <?php
     include "db.php";
-    $employee = DB::GetEmployeeById($_GET["employeeID"]);
-    $availableShifts = DB::getSubBookShifts($employee["storeID"]);
+    $employee = DB::GetEmployeeById($_GET['employeeID']);
+    $storeID = $employee['storeID'];
+    $availableShifts = DB::getSubBookShifts($storeID);
     echo "<tr>
           <th>Shift ID</th>
           <th>Start Time</th>

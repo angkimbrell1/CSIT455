@@ -199,7 +199,8 @@ public static function employeeTransfer()
     // Make a connection
     $conn = DB::CreateConnection();
     // Make a query
-    $rawResults = $conn->query("SELECT * FROM shifts WHERE availability='1' AND storeID = $storeID AND employeeID IS NOT NULL");
+    $rawResults = $conn->query("SELECT * FROM shifts WHERE
+      availability='0' AND storeID = $storeID AND employeeID IS NOT NULL");
     // Fetch result
     $shifts = [];
     while($row = $rawResults->fetch_assoc()) {
