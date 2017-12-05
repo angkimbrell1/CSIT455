@@ -11,6 +11,21 @@ class DB
     // Send the connection back
     return $connection;
   }
+public static function getEmployeesByManagerStoreID($storeID)
+{
+  // Make a connection
+  $conn = DB::CreateConnection();
+  // Make a query
+  $rawResults = $conn->query("SELECT * FROM employees WHERE storeID = $storeID");
+  // Fetch result
+  $employees = [];
+  while($row = $rawResults->fetch_assoc()) {
+    // Store for use
+    $employees[] = $row;
+  }
+  // Return the bucket
+  return $employees;
+}
 public static function GetEmployeeById($id)
  {
    // Make a connection

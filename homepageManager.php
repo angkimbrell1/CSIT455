@@ -10,7 +10,6 @@
     <title>Welcome Managers!</title>
   </head>
   <body>
-    <!-- TODO: Make form appear when the assign button is cicked -->
     <?php include "navbar.php";
     $managerID = $_GET["managerID"];
     $manager = DB::GetManagerById($managerID);
