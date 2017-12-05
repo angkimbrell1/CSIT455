@@ -3,6 +3,21 @@ include "db.php";
   $employeeID = $_GET["employeeID"];
   $employee = DB::GetEmployeeById($employeeID);
  ?>
+ <?php
+$page = "Home";
+
+  require "header.php";
+  require "session.php";
+
+  if(isset($_SESSION['userID'])) {
+    $accountLink = "logout.php";
+    $activeLink = "Log Out";
+  } else {
+    $accountLink = "login.php";
+    $activeLink = "Log In";
+  }
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,7 +27,7 @@ include "db.php";
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
-    <?php include "header.php"?>
+    <?php include "navbar.php"?>
 
 <h2 id="welcome">Welcome <?php echo "$employee[firstName] $employee[lastName]" ?></h2>
 <h4 id="welcomeStatement">Here are your current scheduled shifts</h4>

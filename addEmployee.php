@@ -1,6 +1,6 @@
 <?php
   include "db.php";
-  //$manager_ID = $_POST["managerID"];
+  $manager_ID = $_POST["managerID"];
   $ID = $_POST["employeeID"];
   $firstName = $_POST["firstName"];
   $lastName = $_POST["lastName"];
@@ -15,7 +15,7 @@
     $_POST["storeID"]
   );
     echo "<h2>Employee Created. Redirecting back to your homepage page.</h2>";
-      echo "<script>setTimeout(\"location.href = 'homepageManager.php';\",3000);</script>";
+      echo "<script>setTimeout(\"location.href = 'homepageManager.php?managerID=$manager_ID';\",3000);</script>";
 
 
 

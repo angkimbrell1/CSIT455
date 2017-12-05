@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Register</title>
-  </head>
-  <body>
-    <link rel="stylesheet" href="finalCSS.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  </head>
+<?php $page = "Register";
+
+require "header.php"; ?>
+
   <body id=firstpage>
     <div class="container">
     	<div class="row">
@@ -27,21 +21,28 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="register-form" action="" method="post" role="form" style="display: block;">
-                  <div class="form-group">
+								<form id="register-form" action="reg_auth.php" method="post" role="form" style="display: block;">
+
+                  					<!--Are employees assigned an ID by the DB or before they are registered??-->
+
+                  					<div class="form-group">
 										<input type="text" name="employeeID" id="employeeID" tabindex="1" class="form-control" placeholder="Employee ID" value="">
 									</div>
-                  <div class="form-group">
-                    <input type="text" name="storeID" id="storeID" tabindex="1" class="form-control" placeholder="Store ID" value="">
-                  </div>
+
+									<!--Added firstName and lastName to register form-->
+									<div class="form-group">
+				                   		<input type="text" name="firstName" id="firstName" tabindex="1" class="form-control" placeholder="First Name" value="">
+				                    </div>
+
+				                    <div class="form-group">
+				                   		<input type="text" name="lastName" id="lastName" tabindex="1" class="form-control" placeholder="Last Name" value="">
+				                    </div>
+
+				                    <div class="form-group">
+				                   		<input type="text" name="storeID" id="storeID" tabindex="1" class="form-control" placeholder="Store ID" value="">
+				                    </div>
 									<div class="form-group">
 										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
-									</div>
-									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-									</div>
-									<div class="form-group">
-										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
 									</div>
 									<div class="form-group">
 										<div class="row">

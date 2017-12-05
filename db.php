@@ -2,10 +2,6 @@
 class DB
 {
   public static function CreateConnection() {
-    $host = "AMAZON THING HERE";
-    $user = "USERNAME HERE";
-    $password = "PASSWORD HERE";
-    $db = "CSIT455";
     $connection = new mysqli($host, $user, $password, $db);
 
     //Check for error
@@ -42,7 +38,7 @@ public static function GetEmployeeById($id)
    // Make a connection
    $conn = DB::CreateConnection();
    // Make a query
-   $rawResults = $conn->query("SELECT * FROM shifts WHERE availability='0' AND storeID = $storeID");
+   $rawResults = $conn->query("SELECT * FROM shifts WHERE availability='1' AND storeID = $storeID");
    // Fetch result
    $shifts = [];
    while($row = $rawResults->fetch_assoc()) {
@@ -100,7 +96,7 @@ public static function employeeTransfer()
     die('Executing FAILED');
   }
   // Relocate to their personal page
-    header("Location: homepageManager.php");
+    header("Location: homepageManager.php?managerID=$_POST[managerID]");
   }
   public static function shiftAssign($shiftID, $employeeID)
   {
@@ -198,6 +194,20 @@ public static function employeeTransfer()
     {
       die('Executing FAILED');
     }
+  }
+  public static function getSubBookShifts($storeID) {
+    // Make a connection
+    $conn = DB::CreateConnection();
+    // Make a query
+    $rawResults = $conn->query("SELECT * FROM shifts WHERE availability='1' AND storeID = $storeID AND employeeID IS NOT NULL");
+    // Fetch result
+    $shifts = [];
+    while($row = $rawResults->fetch_assoc()) {
+      // Store for use
+      $shifts[] = $row;
+    }
+    // Return the bucket
+    return $shifts;
   }
 }
  ?>

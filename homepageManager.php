@@ -9,9 +9,9 @@
     <script src="formFunctions.js" charset="utf-8"></script>
     <title>Welcome Managers!</title>
   </head>
-  <body id="test">
+  <body>
     <!-- TODO: Make form appear when the assign button is cicked -->
-    <?php include "header.php";
+    <?php include "navbar.php";
     $managerID = $_GET["managerID"];
     $manager = DB::GetManagerById($managerID);
 
@@ -58,6 +58,7 @@
       <input type="text" name="lastName" placeholder="Last Name"><br>
       <input type="text" name="position" placeholder="Position"><br>
       <input type="text" name="storeID" placeholder="Store ID"><br>
+        <input type="hidden" name="managerID" value="<?php echo $_GET["managerID"]?>">
       <input type="submit" name="submit" placeholder="submit">
     </form>
   </div>
@@ -67,6 +68,7 @@
     <form class="" action="updateEmployee.php" method="post">
       <input type="text" name="employeeID" placeholder="employeeID"><br>
       <input type="text" name="storeID" placeholder="New Store ID"><br>
+        <input type="hidden" name="managerID" value="<?php echo $_GET["managerID"]?>">
       <input type="submit" name="submit" placeholder="submit">
     </form>
   </div>
@@ -75,6 +77,7 @@
   <div id="deleteEmployee" style="visibility:hidden; overflow:none; height:0px; width: 0px;">
     <form class="" action="deleteEmployee.php" method="post">
       <input type="text" name="employeeID" placeholder="employee ID"><br>
+        <input type="hidden" name="managerID" value="<?php echo $_GET["managerID"]?>">
       <input type="submit" name="submit" placeholder="submit">
     </form>
   </div>
