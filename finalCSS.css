@@ -1,4 +1,11 @@
-
+/* Homepage CSS */
+html, body{
+  background-image: url("workers.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  height: 100%;
+}
 /* Login CSS */
 #firstpage {
     padding-top: 90px;
@@ -109,8 +116,8 @@ background-color: #d15638;
 border-bottom: 4px solid #e2370d;
 width:100%;
 height: auto;
-padding: 0 10px;
-position: fixed;
+position: absolute;
+top:0;
 margin: 0px;
 z-index: 1;
 opacity: 0.9;
@@ -150,64 +157,193 @@ padding: 5px 30px;
 text-decoration: none;
 color: #FAEBD7;
 }
-
-
 /* HOMEPAGE */
 .row {
   margin: none;
 }
 #welcome {
   position: absolute;
-  top: 90px;
+  top: 2%;
+  text-align: center;
+  width: 100%;
+  color: white;
 }
 #welcomeStatement {
   position: absolute;
-  top: 150px;
-}
-#heading {
-  position: absolute;
-  top: 200px;
-  border-style: solid;
-  border-width: 1px;
+  top: 12%;
   text-align: center;
-  font-size: 18px;
-  font-weight: bold;
+  width: 100%;
+  color: white;
 }
-#heading td {
-  font-weight: lighter;
+
+#heading {
+  position: relative;
+  top: 90px;
+  width: 50%;
+  height: 80%;
+  box-shadow: 5px 5px 10px black;
+  border-radius: 80px;
+  margin:auto;
+  background-color: #1593A2;
 }
+
 #buttonTD {
   width: 200px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 /* MANAGER HOMEPAGE */
 #availableShifts {
-  margin: none;
+  position: relative;
+  top: 90px;
+  width: 50%;
+  height: 80%;
+  box-shadow: 5px 5px 10px black;
+  border-radius: 80px;
+  margin: auto;
+  background-color: #1593a2
+}
+
+#availableShifts h2 {
   position: absolute;
-  top: 150px;
-}
-#avail th {
   text-align: center;
+  width: 100%;
+  top: 3%;
+  color: white;
 }
-#avail th, td {
+
+/*Special case for manager*/
+
+#availableShifts h3 {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 12%;
+  color: white;
+}
+
+#avail {
+  position: relative;
+  margin: auto;
+  top: 20%;
+  box-shadow: 5px 5px 10px black;
+}
+
+#availM {
+  position: relative;
+  margin: auto;
+  top: 25%;
+  box-shadow: 5px 5px 10px black;
+}
+
+/*special case for availableShifts.php*/
+#availableShifts #avail {
+  position: relative;
+  margin: auto;
+  top: 15%;
+  box-shadow: 5px 5px 10px black;
+}
+
+#avail th {
+  height: 70px;
+}
+
+#avail td {
+  min-width: 80px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+#avail tr:nth-child(odd) {
+  background-color: #d15638;
+  color: white;
+}
+
+#avail tr:nth-child(even) {
+  background-color: pink;
+  color: black;
+}
+
+#avail th, td, tr {
     border: 1px solid black;
     border-collapse: collapse;
-    padding: 15px;
+    /*padding: 15px;*/
     text-align: center;
 }
 #avail div {
   visibility: hidden;
 }
+
+#avail form input {
+  color: black;
+}
+
+/*special case for manager php*/
+#availM th {
+  height: 70px;
+}
+
+#availM td {
+  min-width: 80px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+#availM tr:nth-child(odd) {
+  background-color: #d15638;
+  color: white;
+}
+
+#availM tr:nth-child(even) {
+  background-color: pink;
+  color: black;
+}
+
+#availM th, td, tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+    /*padding: 15px;*/
+    text-align: center;
+}
+#availM div {
+  visibility: hidden;
+}
+
+#availM form input {
+  color: black;
+}
+
 #input {
   width: 60px;
 }
+
 #console {
-  margin: none;
+  margin-left: 5%;
   position: absolute;
-  top: 200px;
-  right: 100px;
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 15px;
+  top: 90px;
+  right: 60px;
+  box-shadow: 5px 5px 10px black;
+  border-radius: 50px;
+  padding: 20px;
+  background-color: #1593A2;
+  color: white;
+}
+
+#console button {
+  border-radius: 10px;
+  color: black;
+
+}
+
+#console div form input {
+  border-radius: 10px;
+  color: black;
+}
+
+#console h3 {
+  text-align: center;
 }

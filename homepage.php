@@ -29,10 +29,9 @@ $page = "Home";
   <body>
     <?php include "navbar.php"?>
 
-<h2 id="welcome">Welcome <?php echo "$employee[firstName] $employee[lastName]" ?></h2>
-<h4 id="welcomeStatement">Here are your current scheduled shifts</h4>
-
 <div id="heading">
+  <h2 id="welcome">Welcome <?php echo "$employee[firstName] $employee[lastName]" ?></h2>
+  <h4 id="welcomeStatement">Here are your current scheduled shifts</h4>
 <table id="avail">
 <?php
 $employeeID = $_GET["employeeID"];

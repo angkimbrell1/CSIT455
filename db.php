@@ -2,6 +2,7 @@
 class DB
 {
   public static function CreateConnection() {
+
     $connection = new mysqli($host, $user, $password, $db);
 
     //Check for error

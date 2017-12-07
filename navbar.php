@@ -11,7 +11,7 @@ if(isset($_GET['employeeID']))
 if(isset($_GET['managerID']))
 {
   echo "
-    <a href=homepageManager.php?managerID=$_GET[managerID]>Home</a>;
+    <a href=homepageManager.php?managerID=$_GET[managerID]>Home</a>
     <a href=employees.php?managerID=$_GET[managerID]>List of Employees</a>";
 }
 

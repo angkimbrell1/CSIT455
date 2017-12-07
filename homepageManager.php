@@ -15,10 +15,10 @@
     $manager = DB::GetManagerById($managerID);
 
     ?>
-    <h2 id="welcome">Welcome <?php echo "$manager[firstName] $manager[lastName]" ?></h2>
     <div id="availableShifts">
+    <h2 id="welcomeM">Welcome <?php echo "$manager[firstName] $manager[lastName]" ?></h2>
     <h3>Here are shifts that you need to schedule:</h3>
-    <table style="width:150%" id="avail">
+    <table id="availM">
     <?php
     $availableShifts = DB::GetAvailableShiftsByStoreID($manager["storeID"]);
     echo "<tr>
