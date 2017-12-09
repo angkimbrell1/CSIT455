@@ -1,3 +1,23 @@
+<?php
+include "db.php";
+  $employeeID = $_GET["employeeID"];
+  $employee = DB::GetEmployeeById($employeeID);
+ ?>
+ <?php
+$page = "Home";
+
+  require "header.php";
+  require "session.php";
+
+  if(isset($_SESSION['userID'])) {
+    $accountLink = "logout.php";
+    $activeLink = "Log Out";
+  } else {
+    $accountLink = "login.php";
+    $activeLink = "Log In";
+  }
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,33 +27,36 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
   <body>
-    <!-- Header TODO: MAKE THIS A PHP FILE -->
-    <div class="menu">
-    <div class="container-fluid">
-		<div class="navbar-header">
-			<a href="#">Home</a>
-      <a href="#">Sub Shifts</a>
-		</div>
-		<div>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#" ><span class="glyphicon glyphicon-user"></span> Account</a></li>
-			</ul>
-		</div>
-	</div>
-</div>
+    <?php include "navbar.php"?>
 
-<!-- WELCOME THE USER
-TODO: Make this a php statement -->
-<p id="welcome">Welcome EMPLOYEE</p>
-<p id="welcomeStatement">Here are your shifts</p>
+<div id="heading">
+  <h2 id="welcome">Welcome <?php echo "$employee[firstName] $employee[lastName]" ?></h2>
+  <h4 id="welcomeStatement">Here are your current scheduled shifts</h4>
+<table id="avail">
+<?php
+$employeeID = $_GET["employeeID"];
+$employeeShifts = DB::getEmployeeShifts();
+echo "<tr>
+      <th>Shift ID</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+      <th>Date</th>
+      <th>Position</th>
+      <th>Options</th></tr>";
+foreach ($employeeShifts as $shift) {
+  echo "
+      <tr>
+          <td>$shift[shiftID]</td>
+          <td>$shift[startTime]</td>
+          <td>$shift[endTime]</td>
+          <td style=width:100px>$shift[date]</td>
+          <td>$shift[position]</td>
+          <td id=buttonTD style=width:200px><button><a href=subbook.php?shiftID=$shift[shiftID]&employeeID=$employeeID>Put shift in sub book</a></button></td>
+      </tr>";
+}
 
-<!-- LIST -->
-  <div class="heading">
-  <div class="col-md-2" id="heading">Date</div>
-  <div class="col-md-2" id="heading">Time</div>
-  <div class="col-md-2"id="heading">Shift Type</div>
-  <div class="col-md-2"id="heading">Manager</div>
-  <div class="col-md-2"id="heading">Options</div>
+ ?>
+</table>
 </div>
 
   </body>
